@@ -17,8 +17,8 @@ export function Footer() {
   const topServices = liveServices.length > 0 ? liveServices.slice(0, 7) : SERVICES.slice(0, 7);
 
   return (
-    <footer className="mt-16 border-t border-border bg-secondary/40">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-4 lg:gap-8 lg:px-8">
+    <footer className="mt-20 border-t border-border/60 bg-secondary/30">
+      <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 lg:grid-cols-4 lg:gap-10 lg:px-10 lg:py-20">
         <div className="space-y-4">
           <Logo />
           <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">

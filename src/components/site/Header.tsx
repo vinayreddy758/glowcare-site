@@ -35,37 +35,37 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all ${
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "border-b border-border/60 bg-background/85 backdrop-blur-md shadow-soft"
-          : "bg-background/60 backdrop-blur-sm"
+          ? "border-b border-border/50 bg-background/90 backdrop-blur-xl shadow-soft"
+          : "bg-background/50 backdrop-blur-md"
       }`}
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:h-18 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
         <Logo />
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Primary">
           {NAV.map((item) => (
             <Link
               key={item.to}
               to={item.to}
               activeOptions={{ exact: item.to === "/" }}
-              className="rounded-full px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground data-[status=active]:bg-primary-soft data-[status=active]:text-primary"
+              className="rounded-full px-4 py-2.5 text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground data-[status=active]:bg-primary/10 data-[status=active]:text-primary"
             >
               {item.label}
             </Link>
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2.5">
           <a
             href={`tel:${phone}`}
             aria-label={`Call ${phone}`}
-            className="hidden h-10 w-10 place-items-center rounded-full border border-border text-foreground transition-colors hover:bg-secondary md:grid"
+            className="hidden h-10 w-10 place-items-center rounded-full border border-border text-foreground transition-colors hover:bg-secondary hover:border-primary/20 md:grid"
           >
             <Phone className="h-4 w-4" />
           </a>
-          <Button asChild className="hidden h-10 rounded-full px-5 font-semibold shadow-soft md:inline-flex">
+          <Button asChild className="hidden h-10 rounded-full px-6 font-bold shadow-soft text-sm md:inline-flex">
             <Link to="/book">Book Appointment</Link>
           </Button>
 

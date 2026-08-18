@@ -104,6 +104,16 @@ const fallbackWebsiteContent: Record<string, WebsiteContent> = {
     subtitle: "Advanced clinical treatments for acne, pigmentation, hair loss, and anti-aging in Whitefield, Bangalore.",
     button_text: "Book Consultation"
   },
+  about_doctor: {
+    name: "Dr. Priya Sharma",
+    credentials: "MBBS, MD Dermatology · 12+ Years Experience",
+    bio: "Dr. Priya Sharma is a leading dermatologist specializing in acne treatment, pigmentation correction, anti-aging procedures, hair restoration, laser therapies and advanced skin care treatments.",
+    bio2: "Trained at top medical institutions and certified in advanced aesthetic procedures, Dr. Priya believes in a personalised, evidence-based approach — combining medical dermatology with modern aesthetics to deliver natural, long-lasting results.",
+    photo_url: "",
+    years_experience: "12+",
+    patients_treated: "5000+",
+    quote: "Every patient deserves honest advice, safe treatments and results they can see and feel. That promise has guided my practice for over a decade."
+  },
   gallery: {
     images: GALLERY.map(g => ({ label: g.alt, url: g.url }))
   },
@@ -373,6 +383,20 @@ export function useUpdateWebsiteContent() {
     },
     onError: handleError
   });
+}
+
+export function useAboutDoctor() {
+  const { data: contentMap = {} } = useWebsiteContent();
+  return contentMap.about_doctor || fallbackWebsiteContent.about_doctor;
+}
+
+export function useUpdateAboutDoctor() {
+  const updateContent = useUpdateWebsiteContent();
+  return {
+    ...updateContent,
+    mutate: (doctor: Record<string, any>) => updateContent.mutate({ about_doctor: doctor }),
+    mutateAsync: (doctor: Record<string, any>) => updateContent.mutateAsync({ about_doctor: doctor }),
+  };
 }
 
 
