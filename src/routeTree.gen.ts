@@ -23,6 +23,7 @@ import { Route as AdminBusinessHoursRouteImport } from './routes/admin/business-
 import { Route as AdminClinicSettingsRouteImport } from './routes/admin/clinic-settings'
 import { Route as AdminLoginRouteImport } from './routes/admin/login'
 import { Route as AdminServicesRouteImport } from './routes/admin/services'
+import { Route as AdminUsersRouteImport } from './routes/admin/users'
 import { Route as AdminWebsiteContentRouteImport } from './routes/admin/website-content'
 
 const IndexRoute = IndexRouteImport.update({
@@ -95,6 +96,11 @@ const AdminServicesRoute = AdminServicesRouteImport.update({
   path: '/admin/services',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminUsersRoute = AdminUsersRouteImport.update({
+  id: '/admin/users',
+  path: '/admin/users',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminWebsiteContentRoute = AdminWebsiteContentRouteImport.update({
   id: '/admin/website-content',
   path: '/admin/website-content',
@@ -115,6 +121,7 @@ export interface FileRoutesByFullPath {
   '/admin/clinic-settings': typeof AdminClinicSettingsRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/services': typeof AdminServicesRoute
+  '/admin/users': typeof AdminUsersRoute
   '/admin/website-content': typeof AdminWebsiteContentRoute
   '/admin/': typeof AdminIndexRoute
 }
@@ -132,6 +139,7 @@ export interface FileRoutesByTo {
   '/admin/clinic-settings': typeof AdminClinicSettingsRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/services': typeof AdminServicesRoute
+  '/admin/users': typeof AdminUsersRoute
   '/admin/website-content': typeof AdminWebsiteContentRoute
   '/admin': typeof AdminIndexRoute
 }
@@ -150,6 +158,7 @@ export interface FileRoutesById {
   '/admin/clinic-settings': typeof AdminClinicSettingsRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/services': typeof AdminServicesRoute
+  '/admin/users': typeof AdminUsersRoute
   '/admin/website-content': typeof AdminWebsiteContentRoute
   '/admin/': typeof AdminIndexRoute
 }
@@ -169,6 +178,7 @@ export interface FileRouteTypes {
     | '/admin/clinic-settings'
     | '/admin/login'
     | '/admin/services'
+    | '/admin/users'
     | '/admin/website-content'
     | '/admin/'
   fileRoutesByTo: FileRoutesByTo
@@ -186,6 +196,7 @@ export interface FileRouteTypes {
     | '/admin/clinic-settings'
     | '/admin/login'
     | '/admin/services'
+    | '/admin/users'
     | '/admin/website-content'
     | '/admin'
   id:
@@ -203,6 +214,7 @@ export interface FileRouteTypes {
     | '/admin/clinic-settings'
     | '/admin/login'
     | '/admin/services'
+    | '/admin/users'
     | '/admin/website-content'
     | '/admin/'
   fileRoutesById: FileRoutesById
@@ -221,6 +233,7 @@ export interface RootRouteChildren {
   AdminClinicSettingsRoute: typeof AdminClinicSettingsRoute
   AdminLoginRoute: typeof AdminLoginRoute
   AdminServicesRoute: typeof AdminServicesRoute
+  AdminUsersRoute: typeof AdminUsersRoute
   AdminWebsiteContentRoute: typeof AdminWebsiteContentRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
@@ -325,6 +338,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/users': {
+      id: '/admin/users'
+      path: '/admin/users'
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof AdminUsersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/website-content': {
       id: '/admin/website-content'
       path: '/admin/website-content'
@@ -349,6 +369,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminClinicSettingsRoute: AdminClinicSettingsRoute,
   AdminLoginRoute: AdminLoginRoute,
   AdminServicesRoute: AdminServicesRoute,
+  AdminUsersRoute: AdminUsersRoute,
   AdminWebsiteContentRoute: AdminWebsiteContentRoute,
   AdminIndexRoute: AdminIndexRoute,
 }

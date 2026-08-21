@@ -1,5 +1,5 @@
 import { Link, useRouter, Outlet } from "@tanstack/react-router";
-import { LayoutDashboard, CalendarDays, Scissors, Clock, CalendarOff, Settings, Type, LogOut } from "lucide-react";
+import { LayoutDashboard, CalendarDays, Scissors, Clock, CalendarOff, Settings, Type, LogOut, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/lib/supabase";
 import { toast } from "sonner";
@@ -13,6 +13,7 @@ const navItems = [
   { label: "Blocked Dates", href: "/admin/blocked-dates", icon: CalendarOff },
   { label: "Clinic Settings", href: "/admin/clinic-settings", icon: Settings },
   { label: "Website Content", href: "/admin/website-content", icon: Type },
+  { label: "Admin Users", href: "/admin/users", icon: Users },
 ];
 
 export function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -40,6 +41,7 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
             <Link
               key={item.href}
               to={item.href}
+              activeOptions={{ exact: item.href === "/admin" }}
               className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground data-[status=active]:bg-primary data-[status=active]:text-primary-foreground"
             >
               <item.icon className="h-4 w-4" />
