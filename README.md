@@ -16,6 +16,17 @@ GlowCare is a web development project designed for a skincare clinic, providing 
 - **Styling:** Tailwind CSS
 - **Backend Integration:** Supabase
 
+## Admin Panel
+
+The project includes an admin panel for authorized administration.
+
+**Demo credentials for evaluation:**
+
+- **Email:** `glowcareadmin@gmail.com`
+- **Password:** . `glowcare`
+
+Admin access depends on the application's authentication configuration and account permissions.
+
 ## Getting Started
 
 ### Prerequisites
@@ -46,16 +57,6 @@ Start the development server:
 npm run dev
 ```
 
-## Admin Panel
-
-The project includes an admin panel for authorized administration.
-
-**Demo credentials for evaluation:**
-
-- **Email:** `glowcareadmin@gmail.com`
-- **Password:** . `glowcare`
-
-Admin access depends on the application's authentication configuration and account permissions.
 
 ## Project Status
 
